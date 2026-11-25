@@ -1,0 +1,6 @@
+{
+  "name": "Windows XP Professional SP3",
+  "description": "Interactive Windows XP Professional SP3 Luna Blue desktop recreation with Explorer, Notepad, Paint, Calculator, Internet Explorer, Control Panel, Run, and persistent Recycle Bin.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
