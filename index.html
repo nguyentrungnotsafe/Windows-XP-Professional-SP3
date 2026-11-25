@@ -12,6 +12,26 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <noscript>
+      <div style="font-family: Tahoma, sans-serif; padding: 24px; color: #111;">
+        JavaScript is required to run Windows XP Professional SP3.
+      </div>
+    </noscript>
+    <script>
+      window.__XP_SHOW_UNBUILT_FALLBACK__ = function () {
+        var root = document.getElementById('root');
+        if (!root || root.childElementCount > 0) return;
+        root.innerHTML =
+          '<div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#5a7edc;font-family:Tahoma,Verdana,sans-serif;padding:24px;box-sizing:border-box;">' +
+          '<div style="max-width:520px;background:#ece9d8;border:2px solid #0054e3;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,0.35);overflow:hidden;">' +
+          '<div style="background:linear-gradient(180deg,#0997ff 0%,#0053ee 8%,#0050ee 88%,#06f 100%);color:#fff;font-weight:bold;font-size:13px;padding:7px 12px;">Windows XP Professional SP3 - Build Required</div>' +
+          '<div style="padding:16px;font-size:12px;line-height:1.5;color:#111;">' +
+          '<p style="margin:0 0 10px;"><strong>The application bundle could not be loaded.</strong></p>' +
+          '<p style="margin:0 0 10px;">This page is serving the uncompiled source <code>index.html</code> instead of the built <code>dist/</code> output.</p>' +
+          '<p style="margin:0;">To fix on GitHub Pages: run <code>npm run build</code> and deploy the <code>dist/</code> folder (or enable <strong>Settings &rarr; Pages &rarr; Source: GitHub Actions</strong>).</p>' +
+          '</div></div></div>';
+      };
+    </script>
+    <script type="module" src="./src/main.tsx" onerror="window.__XP_SHOW_UNBUILT_FALLBACK__()"></script>
   </body>
 </html>

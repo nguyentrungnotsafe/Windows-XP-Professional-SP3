@@ -1,5 +1,6 @@
 import React from 'react';
 import type { AppearancePrefs, WallpaperId } from '../../types/os';
+import { resolvePublicAssetUrl } from '../../utils/assetUrl';
 
 export interface WallpaperOption {
   id: WallpaperId;
@@ -80,7 +81,8 @@ export function isValidWallpaperId(value: unknown): value is WallpaperId {
 }
 
 export function getWallpaperSrc(id: WallpaperId): string | null {
-  return isValidWallpaperId(id) ? WALLPAPER_SRC_MAP[id] : WALLPAPER_SRC_MAP.bliss;
+  const raw = isValidWallpaperId(id) ? WALLPAPER_SRC_MAP[id] : WALLPAPER_SRC_MAP.bliss;
+  return raw ? resolvePublicAssetUrl(raw) : null;
 }
 
 interface WallpaperLayerProps {

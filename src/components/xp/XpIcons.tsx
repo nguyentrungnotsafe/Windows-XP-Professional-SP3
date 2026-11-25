@@ -1,4 +1,5 @@
 import React from 'react';
+import { resolvePublicAssetUrl } from '../../utils/assetUrl';
 
 export type XpIconName =
   | 'my_documents'
@@ -185,7 +186,7 @@ export const XpIcon: React.FC<XpIconProps> = ({ name, size = 32, className = '' 
   if (pngSrc && !imgFailed) {
     return (
       <img
-        src={pngSrc}
+        src={resolvePublicAssetUrl(pngSrc)}
         alt=""
         width={size}
         height={size}

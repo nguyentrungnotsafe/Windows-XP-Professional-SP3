@@ -1,4 +1,5 @@
 import type { AudioState, ModalPromptRequest } from '../types/os';
+import { resolvePublicAssetUrl } from './assetUrl';
 
 export type XpSystemSoundId = 'startup' | 'logon' | 'logoff' | 'shutdown' | 'error';
 
@@ -234,7 +235,7 @@ class XpAudioController {
     const meta = XP_SYSTEM_SOUND_MAP[id];
     if (!meta || typeof fetch !== 'function') return null;
 
-    const promise = fetch(meta.url)
+    const promise = fetch(resolvePublicAssetUrl(meta.url))
       .then(async (res) => {
         if (!res.ok) return null;
         const buf = await res.arrayBuffer();
@@ -287,7 +288,7 @@ class XpAudioController {
     if (!meta) return 'unavailable';
 
     try {
-      const el = new Audio(meta.url);
+      const el = new Audio(resolvePublicAssetUrl(meta.url));
       el.volume = this.getEffectiveGain();
       el.muted = this.currentState.muted;
       this.activeHtmlAudio = el;
